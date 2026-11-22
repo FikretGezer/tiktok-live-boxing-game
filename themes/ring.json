@@ -1,0 +1,95 @@
+{
+  "title": "🥊 Boxing Night",
+  "mode": "ring",
+  "scene": "ring",
+  "scoreUnit": "⭐",
+  "colors": {
+    "sky": "#1a1f2e",
+    "ground": "#3a3f4b",
+    "accent": "#ef4444"
+  },
+  "teams": {
+    "BLUE": "#3b82f6",
+    "RED": "#ef4444",
+    "GREEN": "#22c55e",
+    "GOLD": "#eab308"
+  },
+  "ring": {
+    "diamondPoints": 10,
+    "likePoints": 1,
+    "punchMs": 800,
+    "minDamage": 5,
+    "maxDamage": 11,
+    "missChance": 0.25,
+    "maxBoost": 1.5,
+    "boostPer": 100,
+    "healPerPoint": 0.5,
+    "startDelayMs": 2500,
+    "koDelayMs": 3000
+  },
+  "rules": [
+    {
+      "on": "chat",
+      "match": "JOIN",
+      "do": "spawn"
+    },
+    {
+      "on": "chat",
+      "match": [
+        "BLUE",
+        "RED",
+        "GREEN",
+        "GOLD"
+      ],
+      "do": "setTeam"
+    },
+    {
+      "on": "chat",
+      "match": "WAVE",
+      "do": "say",
+      "text": "👋"
+    },
+    {
+      "on": "follow",
+      "do": "effect",
+      "effect": "confetti"
+    },
+    {
+      "on": "like",
+      "every": 500,
+      "do": "effect",
+      "effect": "cheer"
+    }
+  ],
+  "hud": [
+    "Type JOIN to join the crowd",
+    "Gifts & likes = ⭐ · top ⭐ climbs into the ring",
+    "Fighting? Send more to hit harder!"
+  ],
+  "camera": {
+    "tourEverySec": 60,
+    "tourSec": 9,
+    "koZoom": true,
+    "zoom": 1.05,
+    "height": -0.75
+  },
+  "chant": {
+    "everySec": 0,
+    "texts": [
+      "OLÉ! OLÉ! OLÉ!",
+      "FIGHT! FIGHT! FIGHT!",
+      "WE WANT K.O.!"
+    ],
+    "fighterChant": true,
+    "randomCheer": 0.02,
+    "supportEverySec": 0,
+    "groupEverySec": 0,
+    "groupSize": 8,
+    "fightGroupBoost": 1,
+    "punchReact": 0.45,
+    "koReact": 0.95
+  },
+  "lights": {
+    "show": 1
+  }
+}

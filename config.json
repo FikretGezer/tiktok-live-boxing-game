@@ -1,0 +1,14 @@
+{
+  "port": 8080,
+  "source": "simulator",
+  "theme": "ring",
+  "tiktok": { "username": "", "signApiKey": "" },
+  "limits": {
+    "maxAvatars": 150,
+    "spawnsPerSecond": 5,
+    "userCooldownMs": 2000,
+    "giftProtectMinutes": 10,
+    "frontSlots": 8
+  },
+  "blocklist": []
+}

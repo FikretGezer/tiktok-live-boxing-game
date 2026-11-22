@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Crowd Game</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+</head>
+<body>
+  <div id="stage">
+    <canvas id="c"></canvas>
+    <div id="hud">
+      <div id="title"></div>
+      <div id="lines"></div>
+      <div id="ringHud" hidden>
+        <div class="fighters">
+          <div class="f red"><div class="fname" id="redName"></div><div class="bar"><i id="redHp"></i></div><div class="pow" id="redPow"></div></div>
+          <div class="vs" id="ringPhase">VS</div>
+          <div class="f blue"><div class="fname" id="blueName"></div><div class="bar"><i id="blueHp"></i></div><div class="pow" id="bluePow"></div></div>
+        </div>
+        <div id="ringNext"></div>
+      </div>
+      <div id="banner"></div>
+      <div id="boardWrap"><div class="boardTitle">Top supporters</div><ol id="board"></ol></div>
+      <div id="effectText"></div>
+    </div>
+    <div id="safe" hidden><i></i></div>
+  </div>
+
+  <aside id="dev">
+    <h2>Dev panel <small>(D to hide)</small></h2>
+    <div class="status"><span id="dot"></span> <span id="statusText">connecting…</span></div>
+    <fieldset class="live"><legend>TikTok LIVE (optional)</legend>
+      <div class="row"><input id="ttUser" placeholder="@any_live_username" maxlength="40"><button data-act="ttConnect">Connect</button><button data-act="ttStop">Stop</button></div>
+    </fieldset>
+    <label>Username <input id="u" placeholder="random if empty" maxlength="40"></label>
+    <div class="row"><input id="chatText" value="JOIN" maxlength="200"><button data-act="chat">Send chat</button></div>
+    <div class="row">
+      <select id="gift"><option>Rose</option><option>Heart</option><option>Perfume</option><option>Lion</option><option>Universe</option></select>
+      <input id="giftCount" type="number" value="1" min="1" max="99">
+      <button data-act="gift">Send gift</button>
+    </div>
+    <div class="row"><button data-act="follow">Follow</button><button data-act="like">+100 likes</button><button data-act="share">Share</button></div>
+    <div class="row"><button data-act="join10">10 random JOIN</button></div>
+    <label>Chaos mode: <b id="rateVal">0</b> events/s <input id="rate" type="range" min="0" max="100" value="0"></label>
+    <div class="row"><button data-act="reset">Reset game</button><button data-act="safe">Toggle safe zones</button><button data-act="mute">Sound: on</button></div>
+    <div class="row"><button data-act="tour">🎥 Camera tour</button><button data-act="chant">📣 Crowd chant</button></div>
+    <details id="liveSet" open><summary>🎛️ Kamera &amp; seyirci ayarları (kaydedilir)</summary>
+      <label>Işık şovu (0 = kapalı, 1 = normal, 2 = çılgın) <b data-out="lights.show"></b><input type="range" data-set="lights.show" min="0" max="2" step="0.1"></label>
+      <label>Kamera yakınlığı <b data-out="camera.zoom"></b><input type="range" data-set="camera.zoom" min="0.5" max="1.25" step="0.05"></label>
+      <label>Kamera yüksekliği <b data-out="camera.height"></b><input type="range" data-set="camera.height" min="-5" max="5" step="0.25"></label>
+      <label>Kamera turu sıklığı (sn, 0 = kapalı) <b data-out="camera.tourEverySec"></b><input type="range" data-set="camera.tourEverySec" min="0" max="180" step="5"></label>
+      <label>Kamera turu süresi (sn) <b data-out="camera.tourSec"></b><input type="range" data-set="camera.tourSec" min="3" max="30" step="1"></label>
+      <label>Grup tezahüratına katılan kişi <b data-out="chant.groupSize"></b><input type="range" data-set="chant.groupSize" min="1" max="60" step="1"></label>
+      <label>Grup tezahüratı sıklığı (sn, 0 = kapalı) <b data-out="chant.groupEverySec"></b><input type="range" data-set="chant.groupEverySec" min="0" max="20" step="0.5"></label>
+      <label>Dövüşte grup tezahüratı kaç kat sık <b data-out="chant.fightGroupBoost"></b><input type="range" data-set="chant.fightGroupBoost" min="1" max="5" step="0.5"></label>
+      <label>Tüm tribün tezahüratı sıklığı (sn, 0 = kapalı) <b data-out="chant.everySec"></b><input type="range" data-set="chant.everySec" min="0" max="120" step="5"></label>
+      <label>"Alkış alkış HEY" sıklığı (sn, 0 = kapalı) <b data-out="chant.supportEverySec"></b><input type="range" data-set="chant.supportEverySec" min="0" max="30" step="1"></label>
+    </details>
+    <label>Volume <input id="vol" type="range" min="0" max="100" value="35"></label>
+    <pre id="stats"></pre>
+  </aside>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

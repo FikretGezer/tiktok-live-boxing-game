@@ -1,0 +1,15 @@
+{
+  "title": "The Great Parade",
+  "colors": { "sky": "#8ec5ff", "ground": "#d9c49a", "accent": "#ff5a5f" },
+  "teams": { "BLUE": "#3b82f6", "RED": "#ef4444", "GREEN": "#22c55e", "GOLD": "#eab308" },
+  "rules": [
+    { "on": "chat", "match": "JOIN", "do": "spawn" },
+    { "on": "chat", "match": ["BLUE", "RED", "GREEN", "GOLD"], "do": "setTeam" },
+    { "on": "chat", "match": "WAVE", "do": "say", "text": "👋" },
+    { "on": "gift", "minDiamonds": 1, "do": "promote", "slot": "front", "effect": "sparkle" },
+    { "on": "gift", "minDiamonds": 100, "do": "promote", "slot": "hero", "effect": "fireworks" },
+    { "on": "follow", "do": "effect", "effect": "confetti" },
+    { "on": "like", "every": 500, "do": "effect", "effect": "cheer" }
+  ],
+  "hud": ["Type JOIN to enter the parade", "Type BLUE / RED / GREEN / GOLD for your team", "Send 🌹 to march in front · 100💎 to lead"]
+}
