@@ -112,4 +112,8 @@ Geliştirme günlüğü (ne yapıldı, ayarların tamamı, bilinen sorunlar): [d
 - 3D motor: [Three.js](https://threejs.org).
 - TikTok bağlantısı: [TikTok-Live-Connector](https://github.com/zerodytrash/TikTok-Live-Connector).
 
+## Lisans
+
+Kod: [MIT](LICENSE). 3D karakterler CC0 (Kenney).
+
 Bu bir hayran projesidir. TikTok ile bir bağlantısı yoktur.

@@ -110,4 +110,8 @@ docs/     DEVLOG.tr.md (development log, in Turkish) · media/
 - 3D engine: [Three.js](https://threejs.org).
 - TikTok connection: [TikTok-Live-Connector](https://github.com/zerodytrash/TikTok-Live-Connector).
 
+## License
+
+Code: [MIT](LICENSE). The 3D characters are CC0 (Kenney).
+
 This is a fan project. It is not affiliated with TikTok.
